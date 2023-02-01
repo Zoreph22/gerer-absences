@@ -1,0 +1,14 @@
+{
+    "name": "clement/gerer-absences",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Zoreph",
+            "email": "61715886+Zoreph22@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.6"
+    }
+}
