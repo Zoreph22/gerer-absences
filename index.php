@@ -1,15 +1,20 @@
 <?php
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
-use Slim\Factory\AppFactory;
+use App\App;
+use App\Test;
+use App\Models\Database\DbConnection;
+use App\Controllers\Api\Factories\ApiFactory;
 
 require __DIR__ . '/vendor/autoload.php';
 
-$app = AppFactory::create();
+App::init();
 
-$app->get('/', function (Request $request, Response $response, $args) {
-    $response->getBody()->write("Hello world!");
-    return $response;
-});
+DbConnection::connect();
+new ApiFactory();
 
-$app->run();
+// Test::init();
+// Test::groupeTest();
+// Test::ApprenantTest();
+// Test::AbsenceTest();
+// Test::RecapAbsencesTest();
+
+App::$app->run();

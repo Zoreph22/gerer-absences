@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS Apprenant;
 DROP TABLE IF EXISTS Groupe;
-DROP TABLE IF EXISTS Absences;
+DROP TABLE IF EXISTS Absence;
 
 CREATE TABLE Apprenant (
   code_apprenant      INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -15,7 +15,7 @@ CREATE TABLE Groupe (
   nom_groupe          VARCHAR(200) NOT NULL
 );
 
-CREATE TABLE Absences (
+CREATE TABLE Absence (
   code_absence        INTEGER PRIMARY KEY AUTOINCREMENT,
   code_apprenant      INTEGER,
   nb_heures_absence   INTEGER NOT NULL,
