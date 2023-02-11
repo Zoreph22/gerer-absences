@@ -1,0 +1,72 @@
+tr th:first-child {
+  border-color: var(--orange);
+}
+
+th {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: 0px 0px 0px 16px;
+  margin: 0px;
+  max-width: 200px;
+  width: 100%;
+  height: 48px;
+  border-bottom: 3px solid;
+  border-color: var(--secondOrange);
+}
+
+td {
+  font-family: "Quicksand";
+  color: var(--gray200);
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 500;
+
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 16px 0px 16px;
+  margin: 0px;
+  max-width: 200px;
+  width: 100%;
+  height: 56px;
+  border-bottom: 2px solid;
+  border-color: var(--gray600);
+}
+
+td div {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+td p {
+  width: 20px;
+}
+
+tr td:last-child {
+  max-width: 100%;
+  width: 100%;
+}
+
+tr {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+tr th:last-child {
+  max-width: 100%;
+  width: 100%;
+}
+
+thead {
+  width: 100%;
+}
+
+
+table {
+  table-layout: auto;
+  width: 100%;
+}

@@ -1,0 +1,34 @@
+.large-input-semibold {
+  display: inline-block;
+  font-family: "Quicksand";
+  font-size: 18px;
+  line-height: 32px;
+  font-weight: 600;
+  background: none;
+}
+
+.large-input {
+  padding: 8px 0 8px 16px;
+  color: var(--gray700);
+  background-color: var(--white);
+  border: 2px solid;
+  border-color: var(--gray300);
+  border-radius: 3px;
+  height: 48px;
+  font-family: "Quicksand";
+  font-size: 18px;
+  line-height: 32px;
+}
+
+.large-input::placeholder {
+  color: var(--placeHolder);
+}
+
+.large-input:hover {
+  border-color: var(--orange);
+}
+
+input:focus {
+  border-color: var(--orange);
+  outline: none;
+}

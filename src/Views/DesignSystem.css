@@ -1,0 +1,65 @@
+/* Fonts */
+@font-face {
+  font-family: "Quicksand";
+  src: url("/assets/fonts/Quicksand-VariableFont_weight.ttf");
+}
+
+:root {
+/* Fonts */
+--white: #FFFFFF;
+--placeHolder: rgb(0, 0, 0, .36);
+
+/* Primary Colors */
+--orange: #FF8800;
+--hoverOrange: #E07000;
+--secondOrange: #FFCB61;
+--hoverSecondOrange: #FFB433;
+--red: #E42A19;
+
+/* Background Color*/
+--gray50: #F7FAFC;
+--gray100: #EDF2F7;
+--gray200: #E2E8F0;
+--gray300: #CBD5E0;
+--gray400: #A0AEC0;
+--gray500: #718096;
+--gray600: #4A5568;
+--gray700: #2D3748;
+--gray800: #1A202C;
+--gray900: #171923;
+}
+
+.xl2-bold {
+  font-family: "Quicksand";
+  font-size: 24px;
+  line-height: 150%;
+  font-weight: 700;
+}
+
+.large-semibold {
+  font-family: "Quicksand";
+  font-size: 18px;
+  line-height: 32px;
+  font-weight: 600;
+}
+
+.medium-semibold {
+  font-family: "Quicksand";
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.medium-bold {
+  font-family: "Quicksand";
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.heading-large-bold {
+  font-family: "Quicksand";
+  font-size: 30px;
+  line-height: 120%;
+  font-weight: 700;
+}

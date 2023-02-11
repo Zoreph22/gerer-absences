@@ -1,0 +1,13 @@
+body {
+  background-color: var(--gray800);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 48px 200px 48px 200px;
+  padding: 24px;
+  background-color: var(--gray700);
+  border-radius: 4px;
+}

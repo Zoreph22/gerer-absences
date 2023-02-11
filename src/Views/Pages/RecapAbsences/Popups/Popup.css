@@ -1,0 +1,57 @@
+.backdrop {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(23, 25, 35, .6);
+  backdrop-filter: blur(1px);
+}
+
+.popup {
+  position: absolute;
+  top: 160px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  width: 488px;
+  padding: 32px;
+  border-radius: 4px;
+  background-color: var(--gray700);
+}
+
+.hidden {
+  display: none;
+}
+
+.absences-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+}
+
+.absence {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.actionAbsence {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+hr {
+  height: 2px;
+  color: var(--gray300);
+}
+
+.bottomButton {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+  justify-content: right;
+}

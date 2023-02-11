@@ -1,0 +1,66 @@
+button {
+  font-family: "Quicksand";
+}
+
+.small-button {
+  padding: 0px 16px 0px 16px;
+  height: 24px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+}
+
+.medium-button {
+  padding: 0px 16px 0px 16px;
+  height: 32px;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.large-button {
+  padding: 0px 16px 0px 16px;
+  height: 48px;
+  font-size: 18px;
+  line-height: 32px;
+  font-weight: 600;
+}
+
+.default {
+  border: none;
+  border-radius: 3px;
+}
+
+.outline {
+  background: none;
+  border: 2px solid;
+  border-radius: 3px;
+}
+
+.primary {
+  color: var(--white);
+  background-color: var(--orange);
+}
+
+.primary:hover {
+  background-color: var(--hoverOrange);
+}
+
+.secondary {
+  color: var(--secondOrange);
+  border-color: var(--secondOrange);
+}
+
+.secondary:hover {
+  color: var(--hoverSecondOrange);
+  border-color: var(--hoverSecondOrange);
+}
+.basic {
+  color: var(--gray700);
+  background-color: var(--gray200);
+}
+
+.delete {
+  color: var(--white);
+  background-color: var(--red);
+}
