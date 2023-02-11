@@ -2,7 +2,7 @@
 namespace App;
 
 use App\Models\Factories\ModelFactory;
-
+use App\Models\ModelInstance\Absence;
 
 class Test {
   /**
@@ -33,10 +33,17 @@ class Test {
 
   public static function AbsenceTest() {
     $absence = self::$factory->createAbsence();
+    $abs = new Absence();
+    $abs->setCode_apprenant(1);
+    $abs->setNb_heures_absence(3);
+    $abs->setDate_absence("2000-07-22");
     echo '<pre>';
     var_dump($absence->readAbsenceByCodeAbsence(1));
     var_dump($absence->readAllAbsencesByCodeApprenant(1));
     var_dump($absence->readAllAbsences());
+    var_dump($absence->createAbsence($abs));
+    // var_dump($absence->updateAbsence($abs));
+    // var_dump($absence->deleteAbsence(3));
     echo '</pre>';
   }
 

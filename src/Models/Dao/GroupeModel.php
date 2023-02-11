@@ -38,7 +38,7 @@ class GroupeModel implements GroupeModelInterface {
 
   //TODO Rajouter la récupération de l'id du groupe
   public function createGroupe(Groupe $groupe) {
-    $query = $this->db->prepare("INSERT INTO GROUPE (code_groupe, nom_groupe) VALUES (:code, :nom)");
+    $query = $this->db->prepare("INSERT INTO Groupe (code_groupe, nom_groupe) VALUES (:code, :nom)");
     $query->bindValue(":code", $groupe->getCode_groupe(), SQLITE3_INTEGER);
     $query->bindValue(":nom", $groupe->getNom_groupe(), SQLITE3_TEXT);
 

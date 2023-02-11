@@ -2,12 +2,22 @@
 
 namespace App\Models\ModelInstance;
 
-class Absence
+use DateTime;
+use Exception;
+use JsonSerializable;
+
+class Absence implements JsonSerializable
 {
   private $code_absence;
   private $code_apprenant;
   private $nb_heures_absence;
   private $date_absence;
+
+  public function jsonSerialize(): mixed
+  {
+    $vars = get_object_vars($this);
+    return $vars;
+  }
 
   /**
    * Get the value of code_absence
@@ -84,6 +94,10 @@ class Absence
    */
   public function setDate_absence($date_absence)
   {
+    if (!DateTime::createFromFormat('Y-m-d', $date_absence)) {
+      throw new Exception("Format Date Invalide", 1);
+    }
+
     $this->date_absence = $date_absence;
 
     return $this;

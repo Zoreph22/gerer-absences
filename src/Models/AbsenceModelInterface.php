@@ -9,5 +9,5 @@ interface AbsenceModelInterface {
   function readAllAbsences();
   function createAbsence(Absence $absence);
   function updateAbsence(Absence $absence);
-  function deleteAbsence(Absence $absence);
+  function deleteAbsence(int $code);
 }

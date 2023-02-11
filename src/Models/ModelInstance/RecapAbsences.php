@@ -1,13 +1,21 @@
 <?php
 namespace App\Models\ModelInstance;
 
-class RecapAbsences {
+use JsonSerializable;
+
+class RecapAbsences implements JsonSerializable {
   private $code_apprenant;
   private $code_groupe;
   private $nom_groupe;
   private $nom_apprenant;
   private $prenom_apprenant;
   private $nb_total_absences;
+
+  public function jsonSerialize(): mixed
+  {
+    $vars = get_object_vars($this);
+    return $vars;
+  }
 
   /**
    * Get the value of code_apprenant
@@ -129,4 +137,3 @@ class RecapAbsences {
     return $this;
   }
 }
-?>

@@ -52,13 +52,37 @@ class AbsenceModel implements AbsenceModelInterface
 
   public function createAbsence(Absence $absence)
   {
+    $query = $this->db->prepare("INSERT INTO Absence (code_apprenant, nb_heures_absence, date_absence) VALUES (:codeApprenant, :nbHeure, :dateAbs)");
+    $query->bindValue(":codeApprenant", $absence->getCode_apprenant(), SQLITE3_INTEGER);
+    $query->bindValue(":nbHeure", $absence->getNb_heures_absence(), SQLITE3_INTEGER);
+    $query->bindValue(":dateAbs", $absence->getDate_absence(), SQLITE3_TEXT);
+
+    $success = $query->execute();
+    $absence->setCode_absence((int) $this->db->lastInsertId());
+    if(!$success) {
+      return false;
+    }
+    return $absence;
   }
 
   public function updateAbsence(Absence $absence)
   {
+    $query = $this->db->prepare("UPDATE Absence SET nb_heures_absence = :nbHeure, date_absence = :dateAbs WHERE code_absence = :codeAbs");
+    $query->bindValue(":nbHeure", $absence->getNb_heures_absence(), SQLITE3_INTEGER);
+    $query->bindValue(":dateAbs", $absence->getDate_absence(), SQLITE3_TEXT);
+
+    $query->bindValue(":codeAbs", $absence->getCode_absence(), SQLITE3_INTEGER);
+
+    $success = $query->execute();
+    return $success;
   }
 
-  public function deleteAbsence(Absence $absence)
+  public function deleteAbsence(int $code)
   {
+    $query = $this->db->prepare("DELETE FROM Absence WHERE code_absence = :codeAbs");
+    $query->bindValue(":codeAbs", $code, SQLITE3_INTEGER);
+
+    $success = $query->execute();
+    return $success;
   }
 }

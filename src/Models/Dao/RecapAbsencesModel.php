@@ -20,7 +20,8 @@ class RecapAbsencesModel implements RecapAbsencesModelInterface {
     FROM Apprenant
     NATURAL JOIN Groupe
     LEFT JOIN Absence ON Absence.code_apprenant = Apprenant.code_apprenant
-    GROUP BY Apprenant.code_apprenant;");
+    GROUP BY Apprenant.code_apprenant
+    ORDER BY nom_apprenant asc;");
 
     $query->execute();
     $recapAbsences = $query->fetchAll(PDO::FETCH_CLASS, "App\Models\ModelInstance\RecapAbsences");
