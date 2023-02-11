@@ -5,7 +5,8 @@ interface ApiFactoryInterface {
   public function initGroupeApi();
   public function initApprenantApi();
   public function initAbsencesApi();
+  public function initRecapAbsencesApi();
 
-  public function initRecapPageApi();
+  public function initRecapAbsencesPageApi();
 }
 ?>

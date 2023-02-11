@@ -4,15 +4,17 @@ namespace App\Controllers\Api\Factories;
 use App\Controllers\Api\DataApi\GroupeApi;
 use App\Controllers\Api\DataApi\AbsencesApi;
 use App\Controllers\Api\DataApi\ApprenantApi;
-use App\Controllers\Api\PagesApi\RecapPageApi;
+use App\Controllers\Api\DataApi\RecapAbsencesApi;
 use App\Controllers\Api\Factories\ApiFactoryInterface;
+use App\Controllers\Api\PagesApi\RecapAbsencesPageApi;
 
 class ApiFactory implements ApiFactoryInterface {
   public function __construct() {
     $this->initGroupeApi();
     $this->initApprenantApi();
     $this->initAbsencesApi();
-    $this->initRecapPageApi();
+    $this->initRecapAbsencesApi();
+    $this->initRecapAbsencesPageApi();
   }
 
   public function initGroupeApi() {
@@ -27,7 +29,11 @@ class ApiFactory implements ApiFactoryInterface {
     return new AbsencesApi();
   }
 
-  public function initRecapPageApi() {
-    return new RecapPageApi();
+  public function initRecapAbsencesApi() {
+    return new RecapAbsencesApi();
+  }
+
+  public function initRecapAbsencesPageApi() {
+    return new RecapAbsencesPageApi();
   }
   }
