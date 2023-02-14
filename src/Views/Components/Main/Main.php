@@ -7,6 +7,9 @@ use App\Views\Components\Table\Table;
 use App\Views\Components\Text\TextStyle;
 use App\Views\Components\Text\TextVariant;
 
+/**
+ * Composant qui affiche le contenu <main> de la page.
+ */
 class Main implements ViewComponent {
   public function __construct()
   {
@@ -15,10 +18,10 @@ class Main implements ViewComponent {
 
   public function render()
   {
-    printf("<main>");
+    printf("<main><div class='recapAbsencesContainer'>");
     new Text("Récapitulatif des absences", TextStyle::Xl2Bold, TextVariant::Title, "recapAbsences");
     new Table(array("Apprenants", "Groupe", "Nombres d'heures d'absences"));
-    printf("</main>");
+    printf("</div></main>");
   }
 }
 ?>

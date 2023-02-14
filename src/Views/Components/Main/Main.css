@@ -3,11 +3,26 @@ body {
 }
 
 main {
+  padding: 48px 200px 48px 200px;
+}
+
+.recapAbsencesContainer {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin: 48px 200px 48px 200px;
   padding: 24px;
   background-color: var(--gray700);
   border-radius: 4px;
+}
+
+@media (max-width: 1250px) {
+  main {
+    padding: 48px 100px 48px 100px;
+  }
+}
+
+@media (max-width: 1024px) {
+  main {
+    padding: 48px 50px 48px 50px;
+  }
 }

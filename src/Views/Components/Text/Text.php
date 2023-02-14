@@ -4,6 +4,9 @@ namespace App\Views\Components\Text;
 
 use App\Views\ViewComponent;
 
+/**
+ * Composant qui affiche un text.
+ */
 class Text implements ViewComponent
 {
   private string $text;

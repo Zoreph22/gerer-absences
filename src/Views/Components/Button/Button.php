@@ -14,21 +14,26 @@ class Button implements ViewComponent
   private ButtonVariant $variant;
   private string $text;
   private string $id;
+  private string $submit = "type='button'";
 
-  public function __construct(string $text, ButtonSize $size, ButtonStyle $style, ButtonVariant $variant, string $id)
+  public function __construct(string $text, ButtonSize $size, ButtonStyle $style, ButtonVariant $variant, string $id, bool $submit = false)
   {
     $this->size = $size;
     $this->style = $style;
     $this->variant = $variant;
     $this->text = $text;
     $this->id = $id;
+    if($submit) {
+      $this->submit = "type='submit'";
+    }
     $this->render();
   }
 
   public function render()
   {
     printf(
-      "<button class='%s %s %s' id='%s'>%s</button>",
+      "<button %s class='%s %s %s' id='%s'>%s</button>",
+      $this->submit,
       htmlspecialchars($this->size->value),
       htmlspecialchars($this->style->value),
       htmlspecialchars($this->variant->value),

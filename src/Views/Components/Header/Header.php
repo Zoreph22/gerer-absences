@@ -9,6 +9,9 @@ use App\Views\Components\Button\ButtonSize;
 use App\Views\Components\Button\PrimaryButton;
 use App\Views\Components\Button\SecondaryButton;
 
+/**
+ * Composant qui affiche le header de la page.
+ */
 class Header implements ViewComponent {
   public function __construct()
   {

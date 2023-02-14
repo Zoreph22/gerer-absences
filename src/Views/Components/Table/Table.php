@@ -6,9 +6,17 @@ use App\Views\Components\Button\PrimaryButton;
 use App\Views\Components\Button\SecondaryButton;
 use App\Views\ViewComponent;
 
+/**
+ * Composant qui affiche une table.
+ */
 class Table implements ViewComponent {
   private $array;
 
+  /**
+   * Constructeur
+   *
+   * @param string[] $array Tableau qui contient le nom des colonnes.
+   */
   public function __construct(array $array) {
     $this->array = $array;
     $this->render();

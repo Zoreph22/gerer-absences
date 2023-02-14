@@ -55,12 +55,23 @@ button {
   color: var(--hoverSecondOrange);
   border-color: var(--hoverSecondOrange);
 }
+
 .basic {
   color: var(--gray700);
   background-color: var(--gray200);
 }
 
+.basic:hover {
+  color: var(--gray700);
+  background-color: var(--hoverBasic);
+}
+
 .delete {
   color: var(--white);
   background-color: var(--red);
+}
+
+.delete:hover {
+  color: var(--white);
+  background-color: var(--hoverRed);
 }

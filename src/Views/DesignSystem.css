@@ -15,6 +15,8 @@
 --secondOrange: #FFCB61;
 --hoverSecondOrange: #FFB433;
 --red: #E42A19;
+--hoverRed: #CA1F16;
+--hoverBasic: #D7DFEA;
 
 /* Background Color*/
 --gray50: #F7FAFC;
@@ -43,11 +45,26 @@
   font-weight: 600;
 }
 
+.large-regular {
+  font-family: "Quicksand";
+  font-size: 18px;
+  line-height: 32px;
+  font-weight: 400;
+}
+
 .medium-semibold {
   font-family: "Quicksand";
   font-size: 16px;
   line-height: 24px;
   font-weight: 600;
+}
+
+.medium-regular {
+  padding-top: 1px;
+  font-family: "Quicksand";
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
 }
 
 .medium-bold {

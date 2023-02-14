@@ -7,9 +7,9 @@ use App\Views\Components\Button\ButtonStyle;
 use App\Views\Components\Button\ButtonVariant;
 
 class BasicButton {
-  public function __construct(string $text, ButtonSize $size, string $id)
+  public function __construct(string $text, ButtonSize $size, string $id, bool $submit = false)
   {
-    new Button($text, $size, ButtonStyle::Default, ButtonVariant::Basic, $id);
+    new Button($text, $size, ButtonStyle::Default, ButtonVariant::Basic, $id, $submit);
   }
 }
 ?>

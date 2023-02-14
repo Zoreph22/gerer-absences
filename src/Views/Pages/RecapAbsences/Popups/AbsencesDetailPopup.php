@@ -17,7 +17,7 @@ class AbsencesDetailPopup implements ViewComponent {
 
   public function render()
   {
-    printf("<div class='hidden popup' id='detailAbsences' data-id=''>");
+    printf("<div class='detailHidden popup' id='detailAbsences' data-id=''>");
     new Text("ALBERT Jérémy", TextStyle::Xl2Bold, TextVariant::Title, "absenceName");
 
     printf("<div class='absences-container' id='absencesContainer'></div>");
