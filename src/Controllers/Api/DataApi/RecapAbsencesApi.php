@@ -6,6 +6,9 @@ use App\Models\Factories\ModelFactory;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
+/**
+ * Classe de routes API pour le récapitulatif des absences.
+ */
 class RecapAbsencesApi extends AbstractApi {
   public function __construct() {
     parent::__constructor();
@@ -15,7 +18,7 @@ class RecapAbsencesApi extends AbstractApi {
     $this->app->get("/api/recapAbsences", [$this, 'recapAbsences']);
   }
 
-  public function recapAbsences(Request $request, Response $response, $args) {
+  public function recapAbsences(Request $request, Response $response, array $args): Response {
     $factory = new ModelFactory();
     $recapAbsence = $factory->createRecapAbsences();
 
@@ -28,4 +31,3 @@ class RecapAbsencesApi extends AbstractApi {
             ->withStatus(200);
   }
 }
-?>

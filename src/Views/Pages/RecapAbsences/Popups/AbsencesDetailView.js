@@ -1,32 +1,50 @@
+/**
+ * Classe pour la vue de la popup des détails des absences.
+ */
 class AbsencesDetailView {
   constructor(absencesModel) {
     this.absencesModel = absencesModel;
-    this.absencesModel.addEventListener("draw",  () => this.draw());
+    this.absencesModel.addEventListener("draw", () => this.draw());
 
-    this.apprenant = null;
+    this.codeApprenant = null;
     this.absencesContainer = document.getElementById("absencesContainer");
 
     document.getElementById("fermerAbsences").addEventListener("click", () => this.close());
   }
 
+  /**
+   * Affiche la popup des détails des absences pour un apprenant donné.
+   *
+   * @param {number} codeApprenant Le code de l'apprenant.
+   * @param {string} name Le nom de l'apprenant.
+   * @returns {Promise}
+   */
   async show(codeApprenant, name) {
-    this.apprenant = codeApprenant;
+    this.codeApprenant = codeApprenant;
     document.getElementById("absenceName").innerText = name;
 
     await this.draw();
 
     document.getElementById("backdrop").classList.toggle("hidden");
     const popup = document.getElementById("detailAbsences");
-    popup.classList.toggle("hidden");
+    popup.classList.toggle("detailHidden");
   }
 
+  /**
+   * Vide le conteneur des absences
+   */
   empty() {
     document.getElementById("absencesContainer").innerHTML = "";
   }
 
+  /**
+   * Dessine les détails des absences pour un apprenant donné.
+   *
+   * @returns {Promise}
+   */
   async draw() {
     this.empty();
-    const absences = await this.absencesModel.fetch(this.apprenant);
+    const absences = await this.absencesModel.fetch(this.codeApprenant);
     absences.forEach((element) => {
       let absence = document.createElement("div");
       absence.className = "absence";
@@ -37,7 +55,11 @@ class AbsencesDetailView {
       let text = document.createElement("p");
       text.className = "medium-semibold subtitle";
       text.innerText =
-        "Absence le " + element.date_absence + " - " + element.nb_heures_absence + "h";
+        "Absence le " +
+        new Intl.DateTimeFormat("fr-FR").format(new Date(element.date_absence)) +
+        " - " +
+        element.nb_heures_absence +
+        "h";
 
       let modifier = document.createElement("button");
       modifier.className = "small-button outline secondary";
@@ -60,26 +82,49 @@ class AbsencesDetailView {
     });
   }
 
+  /**
+   * Lie un écouteur d'événement pour la modification d'une absence.
+   *
+   * @param {function} handler La fonction gérant la modification d'une absence.
+   */
   bindEditAbsence(handler) {
-    // modifier.onclick = () => {
-    //   handler();
-    // };
+    absencesContainer.addEventListener("click", (event) => {
+      if (event.target.dataset["action"] === "modifier") {
+        handler(this.codeApprenant, event.target.dataset["absenceId"]);
+      }
+    });
   }
 
+  /**
+   * Lie un écouteur d'événement pour la suppression d'une absence.
+   *
+   * @param {function} handler La fonction gérant la suppression d'une absence.
+   */
   bindDeleteAbsence(handler) {
     absencesContainer.addEventListener("click", (event) => {
       if (event.target.dataset["action"] === "delete") {
         if (confirm("Voulez vous vraiment supprimer l'absence ?")) {
-          handler(this.apprenant, event.target.dataset["absenceId"]);
+          handler(this.codeApprenant, event.target.dataset["absenceId"]);
         }
       }
     });
   }
 
+  /**
+   * Ferme la fenêtre de détails des absences
+   */
   close() {
     document.getElementById("backdrop").classList.toggle("hidden");
+    this.hide();
+  }
+
+  /**
+   * Masque la fenêtre de détails des absences.
+   *
+   * @param {boolean} isHidden Indique si la fenêtre est cachée.
+   */
+  hide(isHidden) {
     const popup = document.getElementById("detailAbsences");
-    popup.classList.toggle("hidden");
-    document.getElementById("absencesContainer").innerHTML = "";
+    popup.classList.toggle("detailHidden", isHidden);
   }
 }

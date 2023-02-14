@@ -11,10 +11,4 @@ App::init();
 DbConnection::connect();
 new ApiFactory();
 
- // Test::init();
- // Test::groupeTest();
- // Test::ApprenantTest();
- // Test::AbsenceTest();
- // Test::RecapAbsencesTest();
-
 App::$app->run();

@@ -8,6 +8,9 @@ use App\Controllers\Api\DataApi\RecapAbsencesApi;
 use App\Controllers\Api\Factories\ApiFactoryInterface;
 use App\Controllers\Api\PagesApi\RecapAbsencesPageApi;
 
+/**
+ * Fabrique permettant d'instancier les classes d'API.
+ */
 class ApiFactory implements ApiFactoryInterface {
   public function __construct() {
     $this->initGroupeApi();
@@ -17,23 +20,23 @@ class ApiFactory implements ApiFactoryInterface {
     $this->initRecapAbsencesPageApi();
   }
 
-  public function initGroupeApi() {
+  public function initGroupeApi(): GroupeApi {
     return new GroupeApi();
   }
 
-  public function initApprenantApi() {
+  public function initApprenantApi(): ApprenantApi{
     return new ApprenantApi();
   }
 
-  public function initAbsencesApi() {
+  public function initAbsencesApi(): AbsencesApi {
     return new AbsencesApi();
   }
 
-  public function initRecapAbsencesApi() {
+  public function initRecapAbsencesApi(): RecapAbsencesApi {
     return new RecapAbsencesApi();
   }
 
-  public function initRecapAbsencesPageApi() {
+  public function initRecapAbsencesPageApi(): RecapAbsencesPageApi {
     return new RecapAbsencesPageApi();
   }
   }

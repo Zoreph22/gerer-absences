@@ -6,6 +6,10 @@
   backdrop-filter: blur(1px);
 }
 
+.hidden {
+  display: none;
+}
+
 .popup {
   position: absolute;
   top: 160px;
@@ -21,7 +25,7 @@
   background-color: var(--gray700);
 }
 
-.hidden {
+.detailHidden {
   display: none;
 }
 
@@ -47,6 +51,7 @@
 hr {
   height: 2px;
   color: var(--gray300);
+  width: 100%;
 }
 
 .bottomButton {

@@ -7,6 +7,9 @@ use App\Models\AbsenceModelInterface;
 use App\Models\Database\DbConnection;
 use App\Models\ModelInstance\Absence;
 
+/**
+ * Class qui permet d'intéragir avec les absences dans la base de données.
+ */
 class AbsenceModel implements AbsenceModelInterface
 {
   /**
@@ -19,7 +22,7 @@ class AbsenceModel implements AbsenceModelInterface
     $this->db = DbConnection::getDb();
   }
 
-  public function readAbsenceByCodeAbsence(int $code)
+  public function readAbsenceByCodeAbsence(int $code): Absence
   {
     $query = $this->db->prepare("SELECT * FROM Absence WHERE code_absence = :code");
     $query->bindValue(":code", $code, SQLITE3_INTEGER);
@@ -31,7 +34,7 @@ class AbsenceModel implements AbsenceModelInterface
     return $absence;
   }
 
-  public function readAllAbsencesByCodeApprenant(int $code)
+  public function readAllAbsencesByCodeApprenant(int $code): array
   {
     $query = $this->db->prepare("SELECT * FROM Absence WHERE code_apprenant = :code");
     $query->bindValue(":code", $code, SQLITE3_INTEGER);
@@ -41,16 +44,16 @@ class AbsenceModel implements AbsenceModelInterface
     return $absences;
   }
 
-  public function readAllAbsences()
+  public function readAllAbsences(): array
   {
     $query = $this->db->query("SELECT * FROM Absence");
     $query->execute();
 
-    $groupes = $query->fetchAll(PDO::FETCH_CLASS, "App\Models\ModelInstance\Absence");
-    return $groupes;
+    $absences = $query->fetchAll(PDO::FETCH_CLASS, "App\Models\ModelInstance\Absence");
+    return $absences;
   }
 
-  public function createAbsence(Absence $absence)
+  public function createAbsence(Absence $absence): Absence
   {
     $query = $this->db->prepare("INSERT INTO Absence (code_apprenant, nb_heures_absence, date_absence) VALUES (:codeApprenant, :nbHeure, :dateAbs)");
     $query->bindValue(":codeApprenant", $absence->getCode_apprenant(), SQLITE3_INTEGER);
@@ -65,7 +68,7 @@ class AbsenceModel implements AbsenceModelInterface
     return $absence;
   }
 
-  public function updateAbsence(Absence $absence)
+  public function updateAbsence(Absence $absence): bool
   {
     $query = $this->db->prepare("UPDATE Absence SET nb_heures_absence = :nbHeure, date_absence = :dateAbs WHERE code_absence = :codeAbs");
     $query->bindValue(":nbHeure", $absence->getNb_heures_absence(), SQLITE3_INTEGER);
@@ -77,7 +80,7 @@ class AbsenceModel implements AbsenceModelInterface
     return $success;
   }
 
-  public function deleteAbsence(int $code)
+  public function deleteAbsence(int $code): bool
   {
     $query = $this->db->prepare("DELETE FROM Absence WHERE code_absence = :codeAbs");
     $query->bindValue(":codeAbs", $code, SQLITE3_INTEGER);

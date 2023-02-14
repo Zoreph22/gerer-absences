@@ -1,0 +1,86 @@
+.editPopup {
+  position: absolute;
+  top: 160px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 456px;
+  padding: 32px;
+  border-radius: 4px;
+  background-color: var(--gray700);
+}
+
+.editHidden {
+  display: none;
+}
+
+.nameContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  justify-content: left;
+  align-items: center;
+  width: 100%;
+}
+
+#apprenantName {
+  line-height: 32px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  gap: 32px;
+}
+
+.action {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.formAction {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+}
+
+.formAction button {
+  width: 100%;
+}
+
+.deleteSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.bottomSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  gap: 24px;
+}
+
+.bsHidden {
+  display: none;
+}
