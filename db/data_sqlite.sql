@@ -11,6 +11,5 @@ INSERT INTO Apprenant (code_groupe, nom_apprenant, prenom_apprenant) VALUES
 
 INSERT INTO Absence (code_apprenant, nb_heures_absence, date_absence) VALUES
 (1, 4, "2022-12-01"),
-(2, 2, "2022-12-02"),
 (3, 6, "2022-12-03"),
 (4, 1, "2022-12-04");

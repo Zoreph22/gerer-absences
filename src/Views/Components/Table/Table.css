@@ -8,7 +8,7 @@ th {
   align-items: center;
   padding: 0px 0px 0px 16px;
   margin: 0px;
-  max-width: 200px;
+  max-width: 280px;
   width: 100%;
   height: 48px;
   border-bottom: 3px solid;
@@ -28,7 +28,7 @@ td {
   align-items: center;
   padding: 0px 16px 0px 16px;
   margin: 0px;
-  max-width: 200px;
+  max-width: 280px;
   width: 100%;
   height: 56px;
   border-bottom: 2px solid;
@@ -73,6 +73,12 @@ table {
 
 .highlight td {
   color: var(--secondOrange);
+}
+
+@media (max-width: 1600px) {
+  th, td {
+    max-width: 200px;
+  }
 }
 
 @media (max-width: 1024px) {
